@@ -14,6 +14,7 @@ public class レシピ {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private List<String> 料理名を読み込む() {
 		try {
 			return FileUtils.readLines(new File("料理.txt"));
