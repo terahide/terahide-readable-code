@@ -15,14 +15,8 @@ public class レシピ {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	private List<String> 料理名を読み込む() {
-		//FIXME try-catch消したい
-		try {
-			return FileUtils.readLines(new File("料理.txt"));
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+		return システム都合のヘルパ.read料理File();
 	}
 
 	public void コンソールに表示する(String 料理名){
@@ -33,6 +27,20 @@ public class レシピ {
 	}
 
 	private static class システム都合のヘルパ{
+		private static List<String> read料理File(){
+			return readFile("料理.txt");
+		}
+		private static List<String> readFile(String f){
+			return readFile(new File(f));
+		}
+		@SuppressWarnings("unchecked")
+		private static List<String> readFile(File f){
+			try {
+				return FileUtils.readLines(f);
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
 		private static String createId() {
 			return UUID.randomUUID().toString();
 		}
