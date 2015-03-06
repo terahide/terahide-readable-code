@@ -17,6 +17,7 @@ public class レシピ {
 
 	@SuppressWarnings("unchecked")
 	private List<String> 料理名を読み込む() {
+		//FIXME try-catch消したい
 		try {
 			return FileUtils.readLines(new File("料理.txt"));
 		} catch (IOException e) {
@@ -25,6 +26,8 @@ public class レシピ {
 	}
 
 	public void コンソールに表示する(String 料理名){
+		//FIXME idの生成と表示のフォーマットはコンソールに表示するコンテクストの範疇外なんでなんとかしたい
+
 		String id = システム都合のヘルパ.createId();
 		System.out.println(String.format("%s:%s", id,料理名));
 	}
