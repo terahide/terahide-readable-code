@@ -31,10 +31,10 @@ public class レシピ {
 			return readFile("料理.txt");
 		}
 		private static List<String> readFile(String f){
-			return readFile(new File(f));
+			return read(new File(f));
 		}
 		@SuppressWarnings("unchecked")
-		private static List<String> readFile(File f){
+		private static List<String> read(File f){
 			try {
 				return FileUtils.readLines(f);
 			} catch (IOException e) {
