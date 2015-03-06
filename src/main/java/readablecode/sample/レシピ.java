@@ -3,6 +3,7 @@ package readablecode.sample;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 
@@ -24,6 +25,11 @@ public class レシピ {
 	}
 
 	public void コンソールに表示する(String 料理名){
-		System.out.println(料理名);
+		String id = createId();
+		System.out.println(id+":"+料理名);
+	}
+
+	private String createId() {
+		return UUID.randomUUID().toString();
 	}
 }
