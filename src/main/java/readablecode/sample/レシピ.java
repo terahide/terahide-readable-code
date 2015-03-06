@@ -25,11 +25,13 @@ public class レシピ {
 	}
 
 	public void コンソールに表示する(String 料理名){
-		String id = createId();
-		System.out.println(id+":"+料理名);
+		String id = システム都合のヘルパ.createId();
+		System.out.println(String.format("%s:%s", id,料理名));
 	}
 
-	private String createId() {
-		return UUID.randomUUID().toString();
+	private static class システム都合のヘルパ{
+		private static String createId() {
+			return UUID.randomUUID().toString();
+		}
 	}
 }
